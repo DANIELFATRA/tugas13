@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Sederhana</title>
+    <link rel="stylesheet" type="text/css" href="calculatorcss.css" />
+</head>
+<body>
+</head>
+<body>
+
+<div class="calculator">
+  <h2>Kalkulator Sederhana</h2>
+  <input type="number" id="angka1">
+  <input type="number" id="angka2">
+  <br>
+  <button onclick="hitung('tambah')">+</button>
+  <button onclick="hitung('kurang')">-</button>
+  <button onclick="hitung('kali')">x</button>
+  <button onclick="hitung('bagi')">/</button>
+  <br>
+  <p>Hasil: <span id="hasil"></span></p>
+</div>
+
+<script>
+  // Fungsi untuk penjumlahan
+  function tambah(angka1, angka2) {
+    return angka1 + angka2;
+  }
+
+  // Fungsi untuk pengurangan
+  function kurang(angka1, angka2) {
+    return angka1 - angka2;
+  }
+
+  // Fungsi untuk perkalian
+  function kali(angka1, angka2) {
+    return angka1 * angka2;
+  }
+
+  // Fungsi untuk pembagian
+  function bagi(angka1, angka2) {
+    if (angka2 === 0) {
+      return "Tidak bisa melakukan pembagian dengan nol!";
+    }
+    return angka1 / angka2;
+  }
+
+  // Fungsi untuk menampilkan hasil
+  function hitung(operasi) {
+    let angka1 = parseFloat(document.getElementById('angka1').value);
+    let angka2 = parseFloat(document.getElementById('angka2').value);
+    let hasil;
+
+    switch (operasi) {
+      case 'tambah':
+        hasil = tambah(angka1, angka2);
+        break;
+      case 'kurang':
+        hasil = kurang(angka1, angka2);
+        break;
+      case 'kali':
+        hasil = kali(angka1, angka2);
+        break;
+      case 'bagi':
+        hasil = bagi(angka1, angka2);
+        break;
+      default:
+        hasil = "Operasi tidak valid!";
+    }
+
+    document.getElementById('hasil').innerText = hasil;
+  }
+</script>
+
+</body>
+</html>
+
